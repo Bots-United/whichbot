@@ -1,0 +1,72 @@
+<html><head><title>WhichBot Behaviour</title><h3><a href="http://whichbot.com">WhichBot</a> Behaviour</h3>
+<i>by Clamatius.</i></head><body>
+
+<p>This behaviour description was written for WhichBot version v0.92e.  I'll describe the behaviour for Natural
+Selection, rather than Natural Selection: Combat, since the normal gameplay mode was the main focus of the bot design.  However, obviously a lot of this will still apply to Combat
+since it's really a subset of the problem.
+
+<p>You can find out what all the bots are thinking and currently trying to do via the new "wb status" command, which makes them
+do an alien teamsay describing their current high level strategies.  I should caution you that in v0.92e there seems to be a bug in the command which causes a crash sometimes and I haven't isolated the cause yet.
+
+<h4>High level behaviour</h4>
+
+<p>High level behaviour for WhichBot isn't really that high level - they don't yet do any formal planning or analysis.
+However, they do a lot more than simply react to what they see.  As Natural Selection is a team game, the bots
+share information with each other via a "noticeboard" where they can post useful information that may help other bots (e.g. marine building locations, waypoints they have visited, etc).
+
+<p>Gorges should try to set up alien buildings.  They should also try to avoid marine buildings when they only have 1
+hive.  They will wait at a build point for some time if they don't have enough resources at that moment.  The build order is
+fixed at the low end at something like RT/RT/RT/DC/DC/DC/Hive2/MC/MC/MC and after that it may vary.  If the build order
+is severely disrupted somehow and a gorge ends up with a lot of resources before hive 2 is up, it will go and try to build it.
+<p>Non-gorge bots have a current lifeform and a target lifeform.  They will form packs of up to 3 bots.  The pack leader
+is the highest lifeform in the pack.  The pack leader role may be reassigned within the pack as bots evolve or die.  The pack leader chooses where to go and pack
+followers main priority is usually following the pack leader.  Pack leaders will wait at waypoints for a time if they can't see
+their followers.  Pack followers will wait at waypoints if the leader has stopped and they are next to it.  As an
+interesting tweak, packs can be "slaved" to human players where the pack leaders seek the human player instead of their
+normal behaviour, which allows for some basic human/AI teamwork.
+
+<p>Normal behaviour for a pack leader is a blend of Scout/Seek/Rescue/Flee/Combat strategies.  Weightings of the different strategies depend on configuration
+settings and some hard-coded and situation-dependent settings.
+
+<ul><li>Scout: Travel towards hive locations and resource nozzles to look for marines and marine buildings.    Onos and
+Fades are much less likely to scout (their value for a is much lower).  The formula for the reward
+is <code>at<sup>2</sup>I e<sup>(-br)</sup></code> where a and b are constants, I is the configured influence, t is the time since last visit and r is the estimated travel time to the location.
+<li>Seek: Travel towards known marine building positions and parasited marines.  The formula
+for the reward is <code>aIe<sup>(-br)</sup></code>where a and b are constants, I is the configured influence, and r is the estimated travel time
+to the location.
+<li>Rescue: Only active for a little while when a hive, RT or structure near a hive is attacked. The bot gets a large
+reward for travelling to the attacked structure.  At time of writing the bots aren't smart enough to seek out an active
+siege firing at the structure unless they happen across it on the way.
+<li>Flee: Active when the bot is wounded.  The bot will seek out hives and defense chambers to heal itself.  While this
+is active, a lot of the other behaviours shut down.
+<li>Combat: Active in combat mode.  The bot uses this strategy to navigate to its combat target.  The bot receives a
+large fixed reward which should effectively dominate all other behaviours.
+</ul>
+
+<h4>Pathfinding</h4>
+
+<i>TODO - describe Alex Champandard's Pathematics algorithm here</i>
+
+<h4>Low level behaviour</h4>
+
+<p>The bot mainly relies on human-placed waypoints for navigation.  It uses some simple reactive behaviours based on
+robotics to move to waypoints - it extends "whiskers" at various angles around the front of the bot to detect obstacles
+and adjust its movement angles accordingly.  Movement in Natural Selection is somewhat more complicated than other games
+since some lifeforms can climb walls, travel through small air ducts and even fly!  Given time constraints on the project, I decided to use a simple waypointed system over a more elegant but
+hard to implement system such as a navigation mesh variant.
+
+<p>Note that the bot actually moves as a real player does - i.e. it submits commands to the
+HL engine as a player instead of just moving itself.  This both simplifies movement problems and makes them more
+complex.  On the minus side, due to framerate jitter, movement is not deterministic.  On the plus side, it means that
+theoretically bots can't get into "impossible" states - e.g. stuck in walls, etc.
+
+<p>Sensory information is currently sight-only with no field-of-view.  Audio management is planned but not implemented yet.
+
+<p><i>TODO - elaborate more on low level movement behaviour here</i>
+
+<h4>Combat</h4>
+
+<i>TODO - describe target selection</i>
+
+<p><a href="http://whichbot.com</a>whichbot.com</href>
+</body></html>

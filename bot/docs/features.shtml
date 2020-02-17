@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>WhichBot Features</title>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(192, 192, 192);"
+ link="#0000ee" alink="#0000ee" vlink="#551a8b">
+<!--#include file="includes/logo.shtml" -->
+<!--#include file="includes/navbar.shtml" -->
+
+<h3>WhichBot features include:</h3>
+<ul>
+<li>Most advanced alien AI for <a href="http://natural-selection.org">Natural Selection</a> available.
+<li>Compatible with <a href="http://natural-selection.org">Natural Selection 3.0b3</a>.
+<li>Acts as a <a href="http://metamod.org">Metamod</a> plugin for easy integration with other server plugins.
+<li>Support for all alien lifeforms: Skulk, Gorge, Lerk, Fade and Onos.
+<li>Support for both Natural Selection: Classic and Natural Selection: Combat gameplay modes.
+<li>Dynamic waypoint-based navigation using the Pathematics algorithm powers real-time tactical analysis of map layout which changes as players and bots build structures.
+<li>HiveMind enables bot cooperation and pack-based movement.
+<li>Robotics-based reactive movement allows a wide range of movement, including vent navigation for Skulks and full
+flight for Lerks.
+<li>Team auto-balancing enables server admins to easily control the number of bots playing on a server.
+<li>Support for 19 of the standard NS 3.0b3 maps.
+<li>Bots respond to attacks on their hives and come to their defense.
+<li>Bots report successful attacks and new structures found to human players on their side to enable better bot/human teamwork.
+<li>Gorge bots are now able to build the full range of alien structures: hives and resource, offense, movement, defense and sensory chambers.
+<li>Advanced behaviour engine allows blending of different behaviours (scouting, attacking, defense, etc) in different proportions depending on the HiveMind-assigned role of a given bot.
+<li>Compatible with <a href="http://rcbot.houstondod.com">RCBot</a>, see the <a href="http://sourceforge.net/docman/display_doc.php?docid=16096&amp;group_id=76903">FAQ</a> for details.
+<li>All source code and data files online and available for free (as in beer) use under the <a href="licensing.html">WhichBot license</a>.
+</ul>
+</table>
+
+Quotes from users:
+
+<i>
+<ul>
+<li>"As a side note, last night on the pub server we were playing Lawrence and some bots and they were kicking our ass. Finally, we turned the tide by taking down some hives and one of the marines said 'I don't just want to beat these guys anymore, lets humiliate them'.  He was quite surprised when I told him that all but one of the aliens were bots and thus couldn't be humiliated. hehehe. He said they were the smartest NS bots he's ever played against." -- WhichBot playtester
+<li>I gotta say that I love the whichbots.  They play aliens, and they do kick arse. They play nasty, and are mean enough to give experienced marines a run for their money. -- PetitMorte (<a href="http://www.natural-selection.org/forums/index.php?act=ST&f=8&t=40072&hl=whichbot&s=277e37b4f162d604d4320bbf3c3490a4">link</a>)
+<li>... Great job guys! These whichbots are uber intelligent and did not fall for many glitch tricks! -- Freak83 (<a href="http://www.natural-selection.org/forums/index.php?s=277e37b4f162d604d4320bbf3c3490a4&act=ST&f=1&t=31861&hl=whichbot&st=60">link</a>)
+</ul>
+</i>
+
+</body>
+</html>

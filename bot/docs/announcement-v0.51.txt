@@ -1,0 +1,25 @@
+Version 0.51 beta of WhichBot is ready!
+
+This release is mostly a combination of bugfixes and adding new waypoint support features.
+
+[*] Fixed a serious but intermittent bug causing the server to hang occasionally.
+[*] Nips and tucks to improve server performance.
+[*] Newly waypointed level - ns_nancy, submitted by sandmansa!  A final farewell...
+[*] Newly waypointed level - ns_bast.
+[*] Minor tweak to waypoints for ns_lost.
+[*] Restructured gorge build priorities so the gorge tries hard to build more hives if it has a lot of extra resources.
+[*] Fixed a bug where 1 more dummy player was added by the auto-balancer than absolutely necessary.
+[*] Only add a dummy player or a bot on a given frame, but not both.
+[*] Restructured ladder code to cope with bug affecting Gorges, Fades and Onos when climbing up ladders.  Still not ideal, sadly.
+[*] Rewrote switch-finding code to cope with unusual door mechanisms on ns_nancy.
+[*] Treat rotating doors that block a waypoint path as transparent, like normal doors.
+[*] Added new waypoint command: "wb wpwalkability".  This recalculates walkability for the map, which was previously
+only done at level load time.
+[*] Added new waypoint command: "wb wpcheck".  This points out hives and resource nozzles that gorges won't be able to walk to from the command chair's location.
+[*] Added new waypoint command: "wb wpforcewalkable".  Any paths going to the nearest waypoint will automatically be walkable.  Be very careful with this, or walking evolutions (gorge, fade and onos) will be very confused if they try to take a route that isn't actually walkable.
+[*] Added new waypoint command: "wb wpjump".  Bots travelling to the nearest marked waypoint will jump.
+[*] Added a timeout to build mode so that gorges won't try to build unsuccessfully till their overall timer kills them (weird bug that apparently sometimes happens).
+[*] Have gorges try not to build hive defense structures next to ladders, which was sometimes causing bots to get stuck at the top of the ladder.
+[*] Gorges shouldn't build things underwater, they can't swim that well.
+[*] Autobalance spawns bots even if there are no marines if cheats are enabled.  Helps debug waypointing, since you can easily watch 8+ bots running round the map.
+

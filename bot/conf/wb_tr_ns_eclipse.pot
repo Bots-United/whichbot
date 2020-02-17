@@ -1,0 +1,32 @@
+#
+# $Id: wb_tr_ns_eclipse.pot,v 1.1 2003/07/10 07:58:34 clamatius Exp $
+
+# Placenames in ns_eclipse
+
+[eclipse]
+        eclipse_dock='Docking Control'
+        eclipse_marine='Marine Spawn - Cargo Transfer'
+        eclipse_station='Station Access'
+        eclipse_stationeast='Station Access East'
+        eclipse_stationalpha='Station Access Alpha'
+        eclipse_stationwest='Station Access West'
+        eclipse_triad='Triad Generator Array'
+        eclipse_triadb='Triad Access B'
+        eclipse_access1c='Access Corridor 1C'
+        eclipse_access1b='Access Corridor 1B'
+        eclipse_access1a='Primary Access Corridor 1A'
+        eclipse_horseshoe='The Horseshoe'
+        eclipse_tjunct='T-Junction'
+        eclipse_keyhole='The Keyhole'
+        eclipse_maint='Hive - Maintenance Access'
+        eclipse_south='South Loop'
+        eclipse_core='Hive - Computer Core'
+        eclipse_northcore='North Core Access'
+        eclipse_westcore='West Core Access'
+        eclipse_subjunct='Power Sub-Junction 3'
+        eclipse_access1d='Access Corridor 1D'
+        eclipse_commandnorth='Command Access North'
+        eclipse_command='Hive - Eclipse Command'
+        eclipse_genmon='Primary Generator Monitors'
+        eclipse_commandsouth='Command Access South'
+        eclipse_access1a='Access Corridor 1A'

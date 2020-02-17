@@ -1,0 +1,32 @@
+WhichBot Installation Instructions (STEAM)
+
+Note that WhichBot includes Metamod.  If you already have Metamod installed, do 
+not unzip the files in the ns\addons\metamod directory.
+
+=======
+
+a) Download the whichbot .zip file from the following page:
+
+http://sourceforge.net/project/showfiles.php?group_id=76903
+
+b) Unzip the zip file into your Natural Selection directory.  If you already
+have Metamod installed, do not unzip the files in the ns\addons\metamod directory.
+The directory structure should now include:
+
+{steam half-life install directory}\ns\addons\metamod
+{steam half-life install directory}\ns\addons\whichbot
+
+c) Edit the file liblist.gam in your Natural Selection directory.  To edit
+the file, use Notepad or a similar text editor.
+
+There will be one line that looks like this:
+
+gamedll "dlls\ns.dll"
+
+Delete that line and add 2 new lines:
+
+gamedll "addons\metamod\dlls\metamod.dll"
+gamedll_linux "addons/metamod/dlls/metamod_i386.so"
+
+d) You're done!  Run your server and type "wb add" on the console to add a bot, or "wb balance on" to turn team
+auto-balance on.

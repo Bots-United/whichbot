@@ -1,0 +1,16 @@
+Version .4 beta of WhichBot is ready!
+
+It's upgraded to beta, since the core features that make the bot able to play as a team on its own are now in place.
+
+Latest features and updates:
+
+[*] Gorge support.  Gorges build RTs, hives and rudimentary hive defense.  They're not that smart right now - we'll work more on tuning strategy when NS 1.1 comes out.  N.B. If you see one sitting still, it may be just be waiting for resources.
+[*] Added Linux support to cater to requests from server admins.
+[*] Updated reactive movement from happybadger.  This should hopefully provide better low-level movement.
+[*] Newly waypointed map - ns_napo.  Napo is pretty well suited to bot navigation, so they seem to play fairly well on
+this map.
+[*] Fixed an AI exploit where people were hiding in the hive then knifing bots that evolved.  Now bots don't evolve for a while if they didn't live for very long last spawn.
+[*] Fixed a set of crashing bugs that arose from keeping track to entities that were deleted between frames.
+[*] Retired ns_eclipse for now, because the buggy ladders in the maintenance hive were just too big an issue with gorges playing.
+[*] Added a bunch of tweakable parameters, including limits on the max possible number of bots and a limit to save slots for human players, as well as internal tuning parameters for build strategy, etc.  More to come here.  Look at whichbot.pot in the conf directory for details.
+[*] Added a cap to the max time the pack leader waits for stragglers.  Previously, the pack would get too slow when moving round the map because they were waiting for a skulk who'd died to catch up.

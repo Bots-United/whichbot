@@ -1,0 +1,39 @@
+#
+# $Id: wb_tr_ns_tanith.pot,v 1.2 2003/04/10 00:22:27 clamatius Exp $
+#
+# wb_tr_ns_tanith.pot
+#
+# GetPot configuration file for WhichBot.
+# This config file manages translations of game terms into English.
+# It's intended to provide possible localisation support later.
+
+# Placenames in ns_tanith
+
+[tanith]
+        tanith_marinebase='Marine Start - Uplink Command'
+        tanith_sat='External Satellite Relay'
+        tanith_east='East Access Tunnels'
+        tanith_satcomm='Satellite Comms Hive'
+        tanith_transport='Chemical Transport Room'
+        tanith_acid='Acidic Solution Processing'
+        tanith_cpu='tanith_cpu'
+        tanith_cargo='Cargo Storage'
+        tanith_fusion='Fusion Hive'
+        tanith_storageenter='Storage Entrance'
+        tanith_central='Central Access Tunnels'
+        tanith_waste='Waste Handling Hive'
+        tanith_research='Research Labs'
+        tanith_west='West Access Corridor'
+        tanith_westenter='Western Entrance'
+        tanith_reactor='Reactor Room'
+        tanith_rr='Ready Room'
+        tanith_centerenter='Central Tanith Entrance'
+        tanith_outsidebase='Outside Tanith Station'
+
+# Exterior Access Paths - outside marine spawn
+# External Satellite Relay - transparent tunnel area
+# Chemical Transport Room - outside sat comms
+# East Access Tunnels - on way into sat comms
+# Central Access Tunnels - on way into waste from reactor room
+# West Access Corridor - nozzle under waste
+# Western Entrance - tunnel to West Access Corridor

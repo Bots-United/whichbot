@@ -1,0 +1,34 @@
+[*] Renamed config file to whichbot.txt (instead of whichbot.pot) to cut down on user confusion.
+[*] Added new console command: wb remove.  Removes one whichbot.
+[*] Added new global say commands.  You can now say "/wb add", "/wb remove" and "/wb balance <N>" in global chat to control the # of bots on the server.  Admins, if llamas are abusing this feature, you can turn it off in whichbot.txt.
+[*] If server cheats are enabled, bots now cheat like total weasels to get more res.
+[*] Re-enabled blink and leap, although they still don't work as well as I'd like yet.  In particular, Fades only use blink to close very short distances in combat and don't use it at any other time.
+[*] Moved standard build order back to DMS.
+[*] Onos and Fade now pick Regen as their defence upgrade (instead of Redemption).
+[*] Gorges now target and try to heal wounded aliens.
+[*] Added a bunch of internal stuff on weapon selection which should fix some minor weapon usage bugs.  It should also mean that bots choose cheaper attacks over more expensive ones if they're out of adrenaline.
+[*] Added a new melee intercept calculation which should improve close-up combat for skulks.  Circle-strafing shouldn't be quite so effective against them as it used to be.
+
+[*] Finally fixed the bug which caused the HL engine to go into an infinite loop on Windows.  This should significantly improve stability for Windows users.
+[*] Fixed a bug which caused fleeing bots to try to heal up at empty hives.
+[*] Fixed a bug which caused sensory chambers to get built too close together.
+[*] Fixed a bug which caused gorges to never build RTs, just place them.
+[*] Fixed a bug where the bot names item name was incorrect in the config file.
+[*] Fixed a couple of dodgy waypoints on Tanith.
+[*] Fixed a couple of dodgy waypoints on Eclipse.
+[*] Fixed a bug which caused pack bots to pause to wait for the leader or followers even when they're running away.
+[*] Fixed a bug which caused gorges to give up hope and sulk in the hive if they wanted to build a res node but all the nodes on the map were capped.
+[*] Added a consgreet which gives the bot version number.
+[*] Fixed the hive cost for NS2.01.
+[*] If a newly spawned bot has enough res to build a hive and we only have 1, let's have it go gorge to build it.
+[*] Onos and Fade now aren't as excited about scouting around as skulks.
+[*] If we're a skulk, ignore electrified buildings as much as possible, they're just going to fry us.
+[*] Parasited marines are now more exciting in terms of working out where we want to go.
+[*] Choose a new target if an equally exciting target comes within range.  This should remove an exploit where you could easily kite Onos through groups of marines.
+[*] Fixed a bug which caused res nodes to sometimes show up as unoccupied in the HiveMind when they're actually occupied.  This should fix the bug where gorges sometimes tried to re-build occupied res nodes.
+[*] Fixed a bug which would occasionally cause a crash when entities were destroyed.
+[*] Fixed a bug where Fades were attacking mines even if they didn't have acid rocket.
+[*] Finally got round to fixing all the warnings in the Linux build.
+[*] Fixed a bug where the item key for unbuilt_hive_reward was incorrect.
+[*] Fixed a bug where some resource values weren't being read from the config file properly.
+[*] Enormous internal code tidy-up (affected maybe 90% of the code).

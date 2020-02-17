@@ -1,0 +1,33 @@
+Version .31 alpha for WhichBot released
+
+This is an incremental update to support more maps.
+
+Latest features and updates:
+
+[*] Updated ns_eclipse waypoints.
+[*] Added ns_napo waypoints.
+[*] Added ns_hera waypoints.
+
+All new waypoints are courtesy of Joe O'Neil.  Thanks Joe!
+
+If you've got any questions, check the FAQ first here in case we
+already answered it:
+
+http://sourceforge.net/docman/display_doc.php?docid=16096&group_id=76903
+
+The homepage for the bot is here:
+
+http://whichbot.com
+
+You can download the latest version here:
+
+http://sourceforge.net/project/showfiles.php?group_id=76903
+
+In the unfortunate event that you find a bug, bug reports go here:
+
+http://sourceforge.net/tracker/?group_id=76903&atid=548622
+
+and finally, bot-specific discussions can go in the forums at this link:
+
+http://sourceforge.net/forum/?group_id=76903
+

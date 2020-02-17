@@ -1,0 +1,16 @@
+* Reverse-engineered and updated code for changed binary protocols in NS3.0 final.  Note that this means that this
+  version of WhichBot is only compatible with NS3.0 final.
+
+* Fixed a bug where Fades weren't charged energy to blink.  This should hopefully reduce some of the crazy blinking we
+  were seeing.
+
+* Added Sandman[SA]'s latest waypoints for co_core and ns_eclipse.  Thanks!
+
+* Added a new feature to AttackStrategy - auditory traces of marines are now treated as a parasited marine.  This means
+  that bots will hunt down marines they can hear but not see and also track down marines they remembered hearing
+  recently.  One-hive gorges should also stay away from marines.
+
+* Reduced the influence of parasited marines (also see previous change) so bots aren't quite as excited about hunting
+  them down.
+
+* Upped the influence of marine resource towers to help bots keep the squeeze on marine res.

@@ -1,0 +1,25 @@
+Changes since v0.93:
+
+* Updated Metamod on Windows to 1.17.2.1.  See here for details: http://www.natural-selection.org/forums/index.php?showtopic=79561&st=30.  This version seems to have the least compatibility issues of all the ones I tried.
+* Updated Metamod on Linux to 1.17.2p10.  See here for details: http://forums.unitedadmins.com/index.php?showtopic=39088.    This version seems to have the least compatibility issues of all the ones I tried.
+* Added a fix for a problem associated with HL moving time backwards a very small amount from frame to frame.  The symptom of this was that gorges would get very confused and start spinning in hive areas.
+* Upgraded Linux build to gcc 3.2.3.
+* Upgraded Windows build to Visual Studio 6, SP6.
+* Upgraded STLport to 4.6.2.
+* Link against Valve's HL .so in the Linux build.
+* Updated to use libsupc++.a on Linux (static link of STLport).
+* Added a method so bots can now tell if they're stuck to a ladder.
+* Altered "hit waypoint" logic on ladders (should help with the problem where bots thought they'd got to the top of the ladder but hadn't).
+* Don't run "back up and try again" routine when on a ladder.
+* Don't jump when trying to climb a ladder.
+* Fixed combat evolution issue in beta 5 - bots no longer have to evolve to gorge before other life forms.
+* Fix for a problem where fades would often blink into the ceiling and stick there. Blinking now should be somewhat more controlled. Also fixed a bug where fades sometimes wouldn't slash marines when they could.
+* Tweaked collision detection for Onos.  They would sometimes get stuck on low obstacles (especially alien buildings) and now they seem to be doing a bit better.
+* New waypoints for NS 3.0 beta 5.  Updated maps from me: ns_nancy, ns_lost.  From gruuunt: co_core, co_daimos, co_sava, ns_agora, ns_altair, ns_bast, ns_hera, ns_metal.  Thanks gruuunt!
+* Added a new command, "wb boost <number>", where the number should be an integer between 1 and 15. It gives all currently present bots a boost in xp/res. Note that you must do it after the round starts. This is still a work in progress - I realise it's hard currently for server admins to have an automatic boost for the bots. I'm planning to add more code to make that easier when time permits.
+
+In Combat testing, "wb boost 3" made for a much more exciting game where the bots achieved the full range of lifeforms.
+
+You can also enable "/wb boost" as a global say command by editing whichbot.txt.
+UPDATE: I'm informed there's a bug in this command that gives experience to all alien players, not just bots.  I do not recommend you enable the global say command.
+

@@ -1,0 +1,5 @@
+LIBRARY whichbot
+EXPORTS
+	GiveFnptrsToDll			@1
+SECTIONS
+	.data READ WRITE

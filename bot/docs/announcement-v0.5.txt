@@ -1,0 +1,10 @@
+Version .5 beta of WhichBot is ready!
+
+[*] Added Onos support.  Known bug: Onos can't reliably make it up ladders right now.
+[*] Added a new feature to make it easier to play against larger numbers of bots: wb balance <number>.  For example, "wb balance 2" will make the auto-balancer try to keep the alien team size 2 bigger than the marine team.  This is done by adding dummy bots to the marine team, which will then leave.
+[*] Fixed a bug which caused the waypoint debugger to crash if started in the ready room.
+[*] Fixed a bug which caused the metamod to freak out if the map cycled to a map with no waypoints.
+[*] Fixed a config bug which caused the bots to ignore turrets.
+[*] Fixed a navigation bug which caused the gorge to take forever to build hives on ns_napo, amongst other problems.
+[*] The bots should now go back to the ready room if they become a spectator somehow.
+[*] Fixed a bug which caused the HiveMind to not get reset if a new game starts on the same map.

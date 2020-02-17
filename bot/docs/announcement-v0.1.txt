@@ -1,0 +1,41 @@
+We have a new NS bot for the alien team, WhichBot.  Right now it's in
+alpha testing, and doesn't have a lot of features - it only works on
+ns_tanith, and does not evolve to anything beyond skulk.
+
+However, it should be fairly playable for LAN games.  We don't currently
+regard it as mature enough to run on public servers.
+
+Here's what it does do:
++ evolves upgrades
++ remembers marine building locations
++ chooses and switches weapons reasonably intelligently
++ eats marines for breakfast, elevenses, lunch, dinner and supper.  And
+maybe a midnight snack.
+
+Here's what it doesn't do:
+- respond to hive/building attacks
+- have a human-like sensory model
+- have human-like movement behaviour
+- have difficulty settings
+- gorge (this usually means you need at least one human alien player right now)
+
+The homepage for the bot is here:
+
+http://whichbot.sourceforge.net
+
+You can download the latest version here:
+
+http://sourceforge.net/project/showfiles.php?group_id=76903
+
+In the unfortunate event that you find a bug, bug reports go here:
+
+http://sourceforge.net/tracker/?group_id=76903&atid=548622
+
+and finally, bot-specific discussions can go in the thread here or in the
+forums at this link:
+
+http://sourceforge.net/forum/?group_id=76903
+
+Let us know what you think.
+
+++clamatius (& assorted WhichBot helpers)

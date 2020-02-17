@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bot", "bot.vcproj", "{DFCD2FBF-E01B-48F7-89A1-017CD195EE75}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F27A9FD-0751-43ED-8300-50B31768983E} = {0F27A9FD-0751-43ED-8300-50B31768983E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pathematics", "..\pathematics\pathematics.vcproj", "{0F27A9FD-0751-43ED-8300-50B31768983E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DFCD2FBF-E01B-48F7-89A1-017CD195EE75}.Debug.ActiveCfg = Debug|Win32
+		{DFCD2FBF-E01B-48F7-89A1-017CD195EE75}.Debug.Build.0 = Debug|Win32
+		{DFCD2FBF-E01B-48F7-89A1-017CD195EE75}.Release.ActiveCfg = Release|Win32
+		{DFCD2FBF-E01B-48F7-89A1-017CD195EE75}.Release.Build.0 = Release|Win32
+		{0F27A9FD-0751-43ED-8300-50B31768983E}.Debug.ActiveCfg = Debug|Win32
+		{0F27A9FD-0751-43ED-8300-50B31768983E}.Debug.Build.0 = Debug|Win32
+		{0F27A9FD-0751-43ED-8300-50B31768983E}.Release.ActiveCfg = Release|Win32
+		{0F27A9FD-0751-43ED-8300-50B31768983E}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

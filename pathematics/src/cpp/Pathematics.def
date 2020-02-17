@@ -1,0 +1,4 @@
+LIBRARY pathematics
+EXPORTS
+SECTIONS
+	.data READ WRITE

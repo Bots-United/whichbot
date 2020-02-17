@@ -1,0 +1,72 @@
+Changes since v0.94:
+
+* Reverse-engineered and updated code for changed binary protocols in NS3.0 final.  Note that this means that this
+  version of WhichBot is only compatible with NS3.0 final.
+
+* Updated all included waypoints for NS3.0 final.  This is due to a lot of hard work from Sandman[SA] (NS maps), Gruuunt
+  (CO maps) and allnighterinva (co_sava).  Thanks guys!
+
+* Tweaked Onos and Fade attack code so hopefully they'll hit players a bit more (previously they would miss if the
+  player was crouching).
+
+* Fades and Onos now duck to attack close crouching marines if the marine is on the same level with them or lower. This will hopefully fix the "fade crouch" exploit. 
+ 
+* Added config tweak to whichbot.txt which allows server admins to make "wb balance" trigger off the number of marines rather than the number of human players.
+
+* Updated bundled Metamod versions to v1.17.3 from metamod.org.
+
+* Finally got round to upgrading the dev environment on Windows to VS .Net 2003.
+
+* Added some compiler optimisation options on Linux.
+
+* Added tweak to disable ambush mode if bots see a phasegate.
+
+* Added configuration of bot roles to the config file.
+
+* Fixed a bug where Fades weren't charged energy to blink.  This should hopefully reduce some of the crazy blinking we
+  were seeing.
+
+* Added Sandman[SA]'s latest waypoints for co_core and ns_eclipse.  Thanks!
+
+* Added a new feature to AttackStrategy - auditory traces of marines are now treated as a parasited marine.  This means
+  that bots will hunt down marines they can hear but not see and also track down marines they remembered hearing
+  recently.  One-hive gorges should also stay away from marines.
+
+* Reduced the influence of parasited marines (also see previous change) so bots aren't quite as excited about hunting
+  them down.
+
+* Upped the influence of marine resource towers to help bots keep the squeeze on marine res.
+
+* Fixed a bug that was causing bots to only pick celerity, no more upgrades, in Combat. 
+ 
+* From testing, determined that Onos are so much worse than Fades in Combat that for now WB only goes for Fade in
+  Combat.
+
+* Fixed a bug that was causing "wb status" to crash when it was called when a bot was spawning in and its path manager
+  was in an invalid state. This may have been the sole cause of the wb status crash although I'm not sure of that. In
+  any event, I've been using the command a bunch while testing and haven't seen it crash since I fixed that.
+
+* Fixed bug where the max_num_bots config setting didn't do what you'd think it would do. See here for more details: http://sourceforge.net/forum/forum.php?thread_id=1238052&forum_id=262472 
+
+* Fades should now use metabolize if they can and are hurt.
+
+Added new testing command "wb evolve <lifeform>". Forces all bots to evolve to that lifeform when possible. For example, "wb evolve fade". 
+ 
+* Tweaked fade movement and blink code. Still needs more work but fades should move around significantly faster. 
+ 
+* Fixed Linux build (assertions were enabled but should have been disabled). 
+
+* Added a new bot behaviour, AmbushStrategy. Skulks will wait at ambush waypoints when marines are heard
+  nearby. Ambushing is disabled in NS:Classic if a phasegate is seen. 
+
+* Added a new command, "wb wpambush". When in the debugger, it toggles the nearest waypoint as being an ambush waypoint
+  (or back to not being an ambush waypoint). 
+
+* Added rudimentary hearing system. It's not used for much at all at the moment. Bots hear "noisy" marines and remember
+where they heard them. There's a lot of possible applications for this system in the future. 
+
+* Bot assignment to roles is now controlled from the config file (whichbot.txt). Bots are either assigned to a pack or
+  are in scout/ambush mode. 
+
+* Tweaked waypoint debugger highlighting a bit. Almost all "special" waypoints are now green in the debugger.
+

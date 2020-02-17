@@ -1,0 +1,21 @@
+Version 0.7 is now available.  
+
+This build includes some significant AI and performance upgrades as well as a few bugfixes. However, there's still at least one more bug that causes the server to crash in there somewhere - we're making every effort to track it down.
+
+Changelog:
+[LIST][*]Added FleeStrategy - bots now get "scared" when damaged enough and will try to run away to heal at a hive or defense chambers.
+[*]Major upgrade to the combat navigation algorithm for Fades and Onos which should improve their ability to get to marines who insist on standing in places where just running towards them won't work.
+[*]Significantly improved performance to cut down on CPU lag spikes.
+[*]Parasited marines are now hunted down.  And eaten.
+[*]Bot names are now configurable from the config file.
+[*]Tweaked waypoints for ns_tanith, ns_lost and ns_eclipse to fix some broken paths and cut down on gorges getting stuck on resource nozzles.
+[*]Fixed yet another bug that was causing bots not to attack when they spawned near a marine sometimes.
+[*]Fixed a bug in the auto-balancer which caused it to get confused sometimes and not add enough bots.
+[*]Removed the dummy marine players, since they're not needed any more for NS2.0.
+[*]Fixed a bug which caused oodles of movement chambers to get built.
+[*]Fixed a bug which caused the configuration file not to get parsed on Linux.  The symptom was that bots wouldn't attack.
+[*]Enabled stomp attack for Onos.
+[*]Disabled leap and blink for now till the handling of them is better.
+[*]Pick celerity over adrenaline for Onos.[/LIST]
+
+Enjoy!

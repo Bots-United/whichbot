@@ -1,0 +1,35 @@
+#
+# $Id: wb_tr_ns_bast.pot,v 1.1 2003/07/10 07:54:15 clamatius Exp $
+
+# Placenames in ns_bast
+
+[bast]
+        bastlocation_atmosphericprocessing='Atmospheric Processing'
+        bastlocation_cargolock='Heavy Lock Door'
+        bastlocation_databank='Databank Access'
+        bastlocation_dockingbay='Marine Start - Docking Bay'
+        bastlocation_dockinghydraulics='Docking Hydraulics'
+        bastlocation_emshaft='EM Drill Shaft'
+        bastlocation_engineroom='Hive - Engine Room'
+        bastlocation_filtration='Feedwater Filtration Access'
+        bastlocation_enginecorridor='Engine Corridor'
+        bastlocation_feedwatercontrol='Hive - Feedwater Control'
+        bastlocation_furnace='Steam Generation'
+        bastlocation_lowerjunction='Lower Junction'
+        bastlocation_mainjunction='Main Aft Junction'
+        bastlocation_maintenanceaccess='Maintenance Access'
+        bastlocation_maintenancejunction='Maintenance Junction'
+        bastlocation_ncorridor='North Corridor'
+        bastlocation_observationbridge='Observation Bridge'
+        bastlocation_portairlock='Port Airlock'
+        bastlocation_pressureequalization='Pressure Equalization'
+        bastlocation_refinery='Hive - Refinery'
+        bastlocation_starboardairlock='Starboard Airlock'
+        bastlocation_starboardcorridor='Starboard Corridor'
+        bastlocation_trammaintenance='Tram Maintenance'
+        bastlocation_tramtunnel='Tram Tunnel'
+        bastlocation_ventilation='Ventilation Conduit'
+        bastlocation_watertreatment='Water Treatment'
+
+
+

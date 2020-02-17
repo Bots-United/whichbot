@@ -1,0 +1,53 @@
+Changes since v0.92:
+
+[*] Fixed a major but dumb bug that was totally breaking combat evasion (the bots weren't dodging at all).
+
+[*] Added new teamsay commands "/wb lead" and "/wb resume".  After a "/wb lead", the non-gorge bots will try to follow that player.  They will go back to what they would normally do after a "/wb resume".  This is very handy for leading packs of bots in a rush on a marine base or for testing waypoints.  Just to clarify how you use these commands, you must be an alien player and you say "/wb lead" or "/wb resume" on the team say channel.  If admins don't want this to be possible, they should edit the whichbot.txt config file.
+
+[*] Added a drastic tweak to influence settings to encourage bots to attack resource towers first and foremost and bases secondarily.  Hopefully, this will cut down on bots suiciding on turret farms over and over instead of taking down RTs.
+[*] Fixed another bug that was causing bots to gorge when they shouldn't in NS:Combat.
+
+[*] Fixed a bug in the network message interception code that could theoretically cause a crash but has never seemed to.  It's been there for a while.
+
+[*] Fixed a serious bug in the attack strategy that caused influence values set in the config file to be disregarded.  This would also make scouting much less exciting for bots.
+
+[*] Added a missing translation for item_mine.
+
+[*] Added the possibility of Metamod error warnings to the log class.  This will be an ongoing process, but the idea is to get better reports of technical problems in the server log.
+
+[*] Fixed a bug which could cause gorges to blacklist hive building waypoints (and then they'd never try to build that hive again, potentially causing the gorges to stop building altogether).
+
+[*] Fixed a bug which caused log spam when gorges were building.
+
+[*] Rewrote the PackManager to support more than one pack.  All non-gorge bots are now in packs of 3 or so.
+
+[*] Reduced gorge fear level again.
+
+[*] Increased the amount skulks jump when dodging in combat.
+
+[*] Added a tweak to disable bot chat in the config file.
+
+[*] Bots now announce on team chat when they become the pack leader.
+
+[*] Added a control in the configuration file to limit the number of Onos.
+
+[*] Give XP to bots slightly slower when cheats are enabled (helps test lifeform evolution).
+
+[*] Treat ladders as taking 5x longer to traverse than a walking path would.
+
+[*] Tidied up evolution selection code somewhat (shouldn't have any effect on gameplay unless I broke something)
+
+[*] Tidied up main bot class (again, shouldn't have any effect)
+
+[*] Max # of bots always checked now when bots are added to prevent say commands overloading servers with bots.
+
+[*] Added some sanity checking to path distance calculations (was causing a rare assert on Linux servers).
+
+[*] Now using Sandman[SA]'s waypoints for ns_ayumi, ns_hera, ns_tanith, ns_metal and ns_bast.  Thanks again to Sandman[SA]!
+
+[*] Lowered lerk's rate of fire for spore, umbra and primal scream and raised it for bite.  This will hopefully fix some weird issues where the lerk would get really close but not bite (it was trying to spore again).
+
+[*] Tweaked lerk pitch handling when moving somewhat.  This should help it fly up ladders and also bite jetpackers.  It will hopefully also fix the bug where it appeared to land on your head but not bite you.
+
+[*] Added new feature to the pack manager - bots that evolve into higher lifeforms will become pack leaders if they're a higher lifeform than the current pack leader.
+

@@ -1,0 +1,57 @@
+#
+# $Id: wb_translate.pot,v 1.12 2004/10/07 16:50:31 clamatius Exp $
+#
+# wb_translate.pot
+#
+# GetPot configuration file for WhichBot.
+# This config file manages translations of game terms into English.
+# It's intended to provide possible localisation support later.
+
+
+# Entities are objects in the game.
+[entities]
+        team_command='command chair'
+        resourcetower='resource tower'
+        team_turretfactory='turret factory'
+        team_observatory='observatory'
+        team_prototypelab='prototype lab'
+        team_armslab='arms lab'
+        team_infportal='infantry portal'
+        team_armory='armory'
+        team_turret='turret'
+        team_hive='hive'
+        func_resource='resource nozzle'
+        offensechamber='offense chamber'
+        defensechamber='defense chamber'
+        movementchamber='movement chamber'
+        sensorychamber='sensory chamber'
+        alienresourcetower='resource tower'
+        player='player'
+        avhplayer='player'
+        item_mine='mine'
+
+[general]
+        unknown_value={unknown}
+       	seen_new='Found a new'
+        in='in'
+        leading_pack='I am now a pack leader'
+        just_destroyed='Destroyed target'
+        hivemind_say_prefix='<HiveMind> '
+        BuildNothing='Build nothing'
+        BuildResTower='Build res tower'
+        BuildHive='Build hive'
+        BuildOffenseChamber='Build OC'
+        BuildDefenseChamber='Build DC'
+        BuildMovementChamber='Build MC'
+        BuildSensoryChamber='Build SC'
+        BuildUnknown='Build Unknown'
+        pack='Pack'
+        leader='Leader'
+        skulk='Skulk'
+        lerk='Lerk'
+        gorge='Gorge'
+        fade='Fade'
+        onos='Onos'
+        following='My pack is now following player'
+        resuming='Pack no longer following player'
+        ambush='Ambush'

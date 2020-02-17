@@ -1,0 +1,50 @@
+Version .3 alpha for WhichBot is ready!
+
+Any future WhichBot announcements will be made on this thread.
+
+Latest features and updates:
+
+  [*] Fade support!  Aliens now evolve to Fade when they have enough resources and hives.  All the bots won't go fade simultaneously, to make sure that vent scouting is still covered (we hate the jetpackers...).
+  [*] Waypoint path learning algorithm.  If a bot is getting stuck somewhere due to a buggy waypoint or whatever, they work out it takes longer to go that way and choose paths accordingly.  For example, if a grate is welded shut, they'll figure it out without special waypoints.
+  [*] New WolfPack(tm) strategy, courtesy of happybadger.  Bots now function as rambo-type scouts or as a cooperative attack/scout pack that works together.  You'll see the behaviour when you have 3 bots or more.  The leader of the pack will wait for stragglers.
+  [*] New Rescue strategy, courtesy of happybadger.  Bots should respond to hive attacks.
+  [*] Fades should shoot at mines to clear them, if they're not too close.
+  [*] Newly waypointed level - ns_lost.
+  [*] Newly waypointed level - ns_eclipse.  Thanks to Joe O'Neil for that one.
+  [*] Added whichbot_version cvar so you can find WhichBot servers via variable filters.
+  [*] Fixed a number of waypointing bugs.
+  [*] Fixed a couple of bugs where siege turrets and phase gates never got attacked.
+  [*] Improved navigation round other aliens somewhat.
+  [*] Bots now choose Celerity over Silence.  Seems to work out better.
+  [*] Updated Metamod version in the bundled build to v1.16 for latest HLDS support.
+
+If you've got any questions, check the FAQ first here in case we
+already answered it:
+
+http://sourceforge.net/docman/display_doc.php?docid=16096&group_id=76903
+
+The homepage for the bot is here:
+
+http://whichbot.sourceforge.net
+
+You can download the latest version here:
+
+http://sourceforge.net/project/showfiles.php?group_id=76903
+
+In the unfortunate event that you find a bug, bug reports go here:
+
+http://sourceforge.net/tracker/?group_id=76903&atid=548622
+
+and finally, bot-specific discussions can go in the thread here or in the
+forums at this link:
+
+http://sourceforge.net/forum/?group_id=76903
+
+As a parting note, some feedback from a playtester -
+
+"As a side note, last night on the pub server we were playing Lawrence and some bots and they were kicking our asses.  Finally, we turned the tide by taking down some hives and one of the marines said 'I don't just want to beat these guys anymore, lets humiliate them'.
+ 
+He was quite surprised when I told him that all but one of the aliens were bots and thus couldn't be humiliated.  hehehe.  He said they were the smartest Ns bots he's ever played against."
+
+Let us know what you think.
+

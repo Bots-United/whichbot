@@ -1,0 +1,11 @@
+
+[*] Fades and Onos no longer jump in combat.
+[*] Onos no longer duck to attack (holdover from bug workaround in NS1.04).
+[*] Fixed crash bug that occurred occasionally when bots were trying to rescue an attacked hive.
+[*] If the main config file (whichbot.pot) is missing or unreadable, bots will not be added.
+[*] Gorge should build all kinds of chambers if it has enough hives (several bugs combined were causing this).
+[*] Gorge is now only scared of marine building if it only has 1 active hive.
+[*] Fixed bug (hopefully) that was causing bots not to attack if they saw an enemy while spawning.
+[*] Revamped waypoints for ns_veil to fix problem where gorges got stuck trying to build RTs.
+[*] Bots don't attack when cloaked unless the target gets close.
+[*] Added a bunch of sanity checks round HL calls in an effort to limit crash bugs.

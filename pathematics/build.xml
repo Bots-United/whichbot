@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- WhichBot Ant build file. -->
+<!-- This build file uses the cpptasks Ant extension. -->
+<!-- http://ant.apache.org/ -->
+<!-- http://sourceforge.net/projects/ant-contrib -->
+<!-- Compilers used: MS Visual Studio 6.0 on win32 -->
+<!--                 gcc on linux -->
+<project name="pathematics" default="all">
+    
+    <target name="all" depends="init, build" />
+
+    <!-- DISTRIBUTION -->
+
+    <!-- TESTING -->
+
+    <target name="test" depends="init,define-compilers">
+        <cc objdir="${build}" subsystem="console" 
+                    outfile="${build}/${output.name}-test"
+                    outtype="executable" debug="on" multithreaded="false">
+
+            <compiler refid="dmmp-msvc-cl" if="os.iswindows"/>
+            <compiler refid="dmmp-gcc" if="os.isunix" />
+
+            <fileset dir=".">
+              <include name="${cppsrc}/**/*.cpp" />
+            </fileset>
+	    
+            <sysincludepath>
+                <pathelement path="${cppsrc}" />
+                <pathelement path="${STLport.include}" />
+            </sysincludepath>
+
+            <linker refid="dmmp-msvc-link" if="os.iswindows" />
+            <linker refid="dmmp-gcc-ld" if="os.isunix" />
+        </cc>
+
+        <exec executable="${build}/${output.name}-test">
+        </exec>
+    </target>
+
+    <!-- COMPILATION -->
+
+    <!-- Define C++ tasks via the cpptasks Ant extension -->
+    <taskdef resource="cpptasks.tasks"/>
+    <typedef resource="cpptasks.types"/>
+
+    <target name="build" depends="init,define-compilers,compile" />
+
+    <target name="compile">
+        <cc objdir="${build}" subsystem="console" 
+                    outfile="${build}/${output.name}" outtype="shared" debug="off">
+
+            <compiler refid="pathematics-msvc-cl" if="os.iswindows"/>
+            <compiler refid="pathematics-gcc" if="os.isunix" />
+
+            <fileset dir=".">
+              <include name="${cppsrc}/**/*.cpp" />
+              <exclude name="${cppsrc}/test/**" />
+            </fileset>
+	    
+            <sysincludepath>
+                <pathelement path="${cppsrc}" />
+                <pathelement path="${STLport.include}" />
+            </sysincludepath>
+
+            <linker refid="pathematics-msvc-link" if="os.iswindows" />
+            <linker refid="pathematics-gcc-ld" if="os.isunix" />
+        </cc>
+    </target>
+
+    <target name="define-compilers">
+        <compiler id="pathematics-msvc-cl" name="msvc" exceptions="no">
+            <compilerarg value="/EHsc" />
+            <compilerarg value="/Zi" />
+            <sysincludepath>
+                <pathelement path="${msvc.include}" />
+            </sysincludepath>
+
+            <defineset>
+                <define name="WIN32" />
+            </defineset>
+        </compiler>
+
+        <compiler id="pathematics-gcc" name="gcc" exceptions="no">
+            <sysincludepath>
+                <pathelement path="../bot/src/cpp/extern/STLport/stlport" />
+            </sysincludepath>
+
+            <defineset>
+                <define name="linux" />
+            </defineset>
+        </compiler>
+
+        <linker id="pathematics-msvc-link" name="msvc" incremental="on">
+            <linkerarg value="/LIBPATH:${build}" />
+            <linkerarg value="/def:${basedir}/src/cpp/pathematics.def" />
+        </linker>
+
+        <linker id="pathematics-gcc-ld" name="gcc">
+            <syslibset dir="../bot/lib" libs="stlport_gcc" />
+            <syslibset dir="/lib" libs="pthread" />
+        </linker>
+
+    </target>
+
+    <target name="clean" depends="init">
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+    </target>
+
+    <!-- INITIALISATION -->
+  
+    <target name="init" depends="set-properties,detect-os,prepare" />
+
+    <target name="prepare" depends="set-properties">
+        <mkdir dir="${build}" />
+        <mkdir dir="${dist}" />
+    </target>
+
+    <target name="set-properties">
+        <tstamp />
+        <property file="build.properties" />
+    </target>
+
+    <target name="detect-os" depends="which-os,set-windows-properties,set-unix-properties"/>
+
+    <target name="which-os">
+	<condition property="os.iswindows">
+	    <os family="windows"/>
+	</condition>
+
+	<condition property="os.isunix">
+	    <os family="unix"/>
+	</condition>
+    </target>
+
+    <target name="set-windows-properties" if="os.iswindows">
+	<echo message="Windows OS detected."/>
+	<property name="os.family" value="windows"/>
+    </target>
+
+    <target name="set-unix-properties" if="os.isunix">
+	<echo message="Unix OS detected."/>
+	<property name="os.family" value="unix"/>
+    </target>
+
+</project>

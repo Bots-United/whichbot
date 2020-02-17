@@ -1,0 +1,27 @@
+Changes since v0.91:
+
+[*] Added blink and leap support!  Thanks to Voogru for giving me a suggestion that let me get this to work, finally.
+
+[*] Now bundling MetamodX3 from the AMX Mod X project: http://sourceforge.net/project/showfiles.php?group_id=100470 due to problems reported with the Linux Metamod version used previously.
+
+[*] Fixed bug that caused Onos not to be able to attack marines sometimes (e.g. on slopes)
+
+[*] Onos now occasionally try to devour marines.  Not terribly reliable yet (not that it is for human players either, really).
+
+[*] Updated waypoints for Eclipse and Veil for NS 3.0 beta 4 (credit to Sandman[SA]!)
+
+[*] Fixed bug that caused localisation to be broken.  This bug caused the bots to say things like "prefix_hivemind_say" etc.
+
+[*] Chamber build order is now controlled from the config file.
+
+[*] ns_agora wasn't working too well and the waypoints have been removed for now.
+
+[*] Fixed a bug where marines being digested counted as valid targets and the bots were still attacking them.
+
+[*] Added a tweak to the aiming system to allow bots to hit a little more.  This mostly affects lerks which were having trouble.
+
+[*] Updated electrified range - it was too low and bots were being electrocuted even when they thought they were out of range.
+
+[*] Fixed a bug that meant that bots would end up as gorges in Combat a lot.
+
+[*] Added a tweak to the building behaviour that hopefully will encourage gorges to go out and see the world instead of cowering in the hive, running around in circles with their pudgy hands in the air.  It's scary out there when marines have a lot of buildings, you know...

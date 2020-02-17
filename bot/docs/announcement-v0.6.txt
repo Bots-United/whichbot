@@ -1,0 +1,21 @@
+Version .6 of WhichBot is ready!
+
+This release is intended to be a compatibility release - the bot should
+now be compatible with NS2.0.  Note that this release IS NOT backwards compatible
+with NS1.04.
+
+Tactics for the bots have not been updated for NS2.0 yet, and the new
+weapons aren't being used, but the bot should still be playable.
+
+It's expected that the next release will improve tactics somewhat as well as usage of the new weapons.
+
+Changes:
+
+[*] Many minor tweaks to get the bot to compile and run properly with NS2.0.
+[*] Tweaked waypoints for ns_bast for NS2.0 (thanks to sandmansa).
+[*] Hopefully stuck a stake in the evil gorge building bug, so now gorges should build quickly.
+[*] ns_eclipse rewaypointed for NS2.0 (thanks to sandmansa).
+[*] Waypoints for ns_veil! (thanks to Squidget).
+[*] ns_lost rewaypointed for NS2.0 (thanks to Squidget).
+[*] ns_tanith tweaked for NS2.0.
+[*] Updated bundled Metamod version for compatibility with NS 2.0 (Metamod v1.16.1).

@@ -1,0 +1,14 @@
+* Fixed a bug in v0.94b which was causing bots to instantly forget entities as soon as they saw them.
+
+* Tweaked Onos and Fade attack code so hopefully they'll hit players a bit more (previously they would miss if the
+  player was crouching).
+
+* Updated bundled Metamod versions to v1.17.3 from metamod.org.
+
+* Finally got round to upgrading the dev environment on Windows to VS .Net 2003.
+
+* Added some compiler optimisation options on Linux.
+
+* Added an experimental tweak to disable ambush mode if bots see a phasegate.
+
+* Added configuration of bot roles to the config file.

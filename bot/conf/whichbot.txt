@@ -1,0 +1,366 @@
+#
+# $Id: whichbot.txt,v 1.23 2005/12/14 00:49:12 clamatius Exp $
+#
+# whichbot.pot
+#
+# GetPot Configuration file for whichbot.
+
+[admin]
+        max_num_gorges=3
+        # max_fraction_fade controls the maximum # of fades.  More than this fraction of bots won't go fade.
+        # Normally you want to keep some skulks for faster scouting and to make sure that the vents are patrolled.
+        max_fraction_fade=0.49
+		max_fraction_onos=0.2
+
+        # This setting controls exactly how team auto-balance works.
+		classic_team_balance='0 3 5 4 3 2 1 0'
+		combat_team_balance='0 3 5 4 3 2 1 0'
+        # In this default setting, with 0 human players, there are 0 bots.
+        # With 1 human player, there are 3 bots.
+        # With 2 human players, there are 5 bots.
+        # With 3 human players, there are 4 bots.
+        # And so on.
+        # Spectators and people in the ready room do not affect the count of human players.  Players on the alien
+        # team do.
+        # If you were trying to set up a marines-vs-bots server, you might want to set team_balance
+        # to something like '0 3 5 6 8 10 11' instead.
+
+        # Set balance_marines_only to 1 if you want the auto-balance check to count the number of marines rather than
+        # the total number of human players
+        balance_marines_only=0
+
+        # max_num_bots controls team auto-balance.  If you want to limit the # of players (e.g. to reserve slots
+        # so that human players can join the server), set this to some number less than half the actual maximum # of
+        # players on your server.
+        max_num_bots=16
+        # Bot names
+        bot_names='[wb]TheFatOne [wb]WhichOne [wb]Who [wb]What [wb]That [wb]It [wb]He [wb]They [wb]TheOther [wb]ThatOne'
+        # If this is enabled, bots will chat more about what's going on to their team
+        bot_chat_enabled=1
+        # Set these to zero or comment them out to disable say /wb commands.  Also note that you can enable any
+        # wb command in this way: add a line saying "say_command_<cmdname>=1" and you're done.
+        say_command_balance=1
+        say_command_add=1
+        say_command_remove=1
+        # You probably want to have "wb boost" disabled for players because it's easily abused.
+        say_command_boost=0
+	    # These work the same way, but they work for team say instead of global say commands
+	    # Appropriate for commands where marines shouldn't be able to do it
+        # The status command is disabled for now till the crash bug associated with it is resolved
+	    say_team_command_status=0
+	    say_team_command_lead=1
+        say_team_command_resume=1
+
+[strategy]
+	[./roles]
+                # Bot roles by index.
+                # Available roles:
+                #   G         - Gorge.  Builds.
+                #   S         - Scout.  Likes to explore and ambush.
+                #   <number>  - Belongs to pack with the given number.
+                combat_bot_roles='1 1 S 2 2 S 3 3 S 4 4 S 5 5 S 6 6 S 7 7 S 8 8 S 9 9 S 10 10 S'
+                classic_bot_roles='G 1 1 S G 2 2 S G 3 3 S G 4 4 4 S 5 5 5 S 6 6 6 S 7 7 7 G 8 8 8 S'
+
+        [./builder]
+		# Chamber order
+                chamber_order='4.0 5.0 6.0'
+                # Rewards for a builder are normally offset against a negative-weight attack strategy   
+                # Builder rewards are  multiplied by scale_factor
+                scale_factor=10.0
+                # Builder rewards are multiplied by exp(-distance_scale * [expected_travel_time])
+                distance_scale=0.003
+                # Rewarding the desire to go towards unbuilt res nodes to build resource towers
+                resnode_reward=100.0
+                # Rewarding the desire to go towards hives to build new hives
+                unbuilt_hive_reward=100.0
+                # Rewarding the desire to go towards hives to build hive defense
+                hive_reward=100.0
+                # If we're within hive_defense_range of the hive, we may build OCs and DCs at random
+                hive_defense_range=1000.0
+                # We can only place a hive defense building every hive_defense_timeout seconds
+                hive_defense_timeout=3.0
+                # hive_desire affects how much the gorge wants to build second and third hives
+                hive_desire=30.0
+                # hive_defense_desire affects how much the gorge wants to build OCs and DCs near hive locations
+                hive_defense_desire=30.0
+        [../flee]
+                # Reward for the nearest hive area when we're scared
+                hive_reward=301.0
+                # Reward per defense chamber
+                defensechamber_reward=101.0
+                # How much damage it takes for us to be scared, as a fraction of max health
+                # When a bot is scared, if it isn't currently in melee with a player it will try to run away and heal
+                # Order of the values is skulk, lerk, gorge, fade, onos
+                cowardice='0.2 0.8 0.7 0.6 0.6'
+        [../pack]
+                # The pack leader won't pause more than this often
+                pause_period=30.0
+                # and for this long
+                pause_length=5.0
+		[../ambush]
+                # If a skulk is in ambusher mode, this is the desire it has to go to ambush waypoints.
+                ambush_reward=200.0
+                # After this time has elapsed, the bot will give up ambushing and start moving again.
+                ambush_timeout=45.0 
+
+# Current eEntityTypes (03/27/03)
+# 0   kInvalidEntity
+# 1   kPlayer,
+# 2   kCommandChair,
+# 3   kTurretFactory,
+# 4   kTurret,
+# 5   kArmsLab,
+# 6   kPrototypeLab,
+# 7   kInfantryPortal,
+# 8   kObservatory,
+# 9   kArmory,
+# 10  kResourceTower,
+# 11  kHiveLoc,
+# 12  kResourceLoc,
+# 13  kOffenseChamber,
+# 14  kDefenseChamber,
+# 15  kMovementChamber,
+# 16  kSensoryChamber,
+# 17  kAlienResourceTower
+# 18  kPhaseGate
+# 19  kLandMine
+# 20  kTripMine
+# 21  kSiegeTurret
+
+# NSEntityInfo definitions
+# Structure:
+# type=short	See eEntityType in NSEntityInfo.h
+# team=[0-2]	0=none, 1=marine, 2=alien.  See NSConstants.h
+# class_name='string'.  Note that this is used as the entityName as well.
+# default_influence=[0-100]
+# is_building=[0-1]
+# attack_value=[0-100]
+
+[entities]
+    [./team_command]
+	type=2
+	team=1
+	class_name='team_command'
+	default_influence=50
+	is_building=1
+	attack_value=45
+
+    [../resourcetower]
+	type=10
+	team=1
+	class_name='resourcetower'
+	default_influence=250
+	is_building=1
+	attack_value=40
+
+    [../team_turretfactory]
+	type=3
+	team=1
+	class_name='team_turretfactory'
+	default_influence=20
+	is_building=1
+	attack_value=99
+
+    [../team_observatory]
+	type=8
+	team=1
+	class_name='team_observatory'
+	default_influence=5
+	is_building=1
+	attack_value=70
+
+    [../team_prototypelab]
+	type=6
+	team=1
+	class_name='team_prototypelab'
+	default_influence=3
+	is_building=1
+	attack_value=65
+
+    [../team_armslab]
+	type=5
+	team=1
+	class_name='team_armslab'
+	default_influence=3
+	is_building=1
+	attack_value=64
+
+    [../phasegate]
+	type=18
+	team=1
+	class_name='phasegate'
+	default_influence=30
+	is_building=1
+	attack_value=85
+
+    [../team_infportal]
+	type=7
+	team=1
+	class_name='team_infportal'
+	default_influence=20
+	is_building=1
+	attack_value=60
+
+    [../team_armory]
+	type=9
+	team=1
+	class_name='team_armory'
+	default_influence=2
+	is_building=1
+	attack_value=42
+
+    [../turret]
+	type=4
+	team=1
+	class_name='turret'
+	default_influence=0
+	is_building=1
+	attack_value=66
+
+    [../siegeturret]
+	type=21
+	team=1
+	class_name='siegeturret'
+	default_influence=80
+	is_building=1
+	attack_value=40
+
+    [../item_mine]
+	type=19
+	team=1
+	class_name='item_mine'
+	default_influence=0
+	is_building=1
+	attack_value=0
+
+    [../team_hive]
+	type=11
+	team=0
+	class_name='team_hive'
+	default_influence=100
+	is_building=0
+	attack_value=0
+
+    [../func_resource]
+	type=12
+	team=0
+	class_name='func_resource'
+	default_influence=20
+	is_building=0
+	attack_value=0
+
+    [../offensechamber]
+	type=13
+	team=2
+	class_name='offensechamber'
+	default_influence=0
+	is_building=1
+	attack_value=0
+
+    [../defensechamber]
+	type=14
+	team=2
+	class_name='defensechamber'
+	default_influence=0
+	is_building=1
+	attack_value=0
+
+    [../movementchamber]
+	type=15
+	team=2
+	class_name='movementchamber'
+	default_influence=0
+	is_building=1
+	attack_value=0
+
+    [../sensorychamber]
+	type=16
+	team=2
+	class_name='sensorychamber'
+	default_influence=0
+	is_building=1
+	attack_value=0
+
+    [../alienresourcetower]
+	type=17
+	team=2
+	class_name='alienresourcetower'
+	default_influence=20
+	is_building=1
+	attack_value=0
+
+    [../player]
+	type=1
+	team=0
+	class_name='player'
+	default_influence=0
+	is_building=0
+	attack_value=100
+
+    # This doesn't exist as a real class - it's here to provide the attack strategy with config data
+    [../parasited_marine]
+	type=1
+	team=1
+	class_name='parasited_marine'
+	default_influence=200
+	is_building=0
+	attack_value=100
+
+    [../avhplayer]
+	type=1
+	team=0
+	class_name='avhplayer'
+	default_influence=0
+	is_building=0
+	attack_value=100
+
+    [../ping]
+        type=0
+        team=0
+        class_name='ping'
+        default_influence=0
+        is_building=0
+        attack_value=0
+
+[game]
+        [./resources]
+                # Resources required to build various structures
+                team_hive=45
+                defensechamber=10
+                offensechamber=10
+                sensorychamber=10
+                movementchamber=10
+                alienresourcetower=15
+                # Controls the min resources setting for a bot to evolve to higher lifeforms in Combat
+                # If these are not right, the bot will end up as a gorge when it shouldn't be
+		combat_min_resources='0.0 480.0 300.0 720.0 720.0'
+        [../engine]
+                # radius within which sounds can be heard from the sound source location
+                hearing_radius=1200.0
+        [../impulses]
+                chuckle=9
+                carapace=101
+                regeneration=102
+                redemption=103
+                celerity=107
+                adrenaline=108
+                silence=109
+                cloak=110
+                sof=111
+                focus=112
+                leap=119
+                blink=120
+                charge=122
+                skulk=113
+                gorge=114
+                lerk=115
+                fade=116
+                onos=117
+                hive2=118
+                hive3=126
+                resource=90
+                offense=91
+                defense=92
+                sensory=93
+                movement=94
+                hive=95

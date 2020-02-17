@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- WhichBot Ant build file. -->
+<!-- This build file uses the cpptasks Ant extension. -->
+<!-- http://ant.apache.org/ -->
+<!-- http://sourceforge.net/projects/ant-contrib -->
+<!-- Compilers used: MS Visual Studio .Net 2003 on win32 -->
+<!--                 gcc on linux -->
+<!-- For an important note on linking against the NS .so on Linux, see below. -->
+<project name="whichbot" default="all">
+    
+    <target name="all" depends="init, build" />
+
+    <!-- DISTRIBUTION -->
+
+    <target name="dist" depends="init,check-version">
+        <copy todir="${dist}/${waypoints.dir}">
+           <fileset dir="${basedir}/${data}/waypoints" includes="*" />
+        </copy>
+
+        <copy todir="${dist}/addons">
+           <fileset dir="${data}/addons" />
+        </copy>
+
+        <copy todir="${dist}/addons/whichbot/conf">
+           <fileset dir="conf" />
+        </copy>
+
+        <copy todir="${dist}/addons/whichbot/docs">
+           <fileset dir="docs/bundled" />
+        </copy>
+
+        <copy todir="${dist}/addons/whichbot/dlls" failonerror="true">
+           <fileset dir="Release" includes="${output.name}.dll" />
+        </copy>
+
+        <copy todir="${dist}/addons/whichbot/dlls" failonerror="true">
+           <fileset dir="." includes="libwhichbot.so" />
+        </copy>
+
+        <!-- cvs command="tag ${version}" failonerror="true" -->
+
+        <zip zipfile="${distzipfile}">
+	    <fileset dir="${dist}" includes="**" />
+	</zip> 
+    </target>
+
+    <target name="check-version" unless="version">
+        <fail message="Use -Dversion=&lt;version&gt; when target is dist" />
+    </target>
+    <!-- COMPILATION -->
+
+    <!-- Define C++ tasks via the cpptasks Ant extension -->
+    <taskdef resource="cpptasks.tasks"/>
+    <typedef resource="cpptasks.types"/>
+
+    <target name="build" depends="init,define-compilers,compile" />
+
+    <target name="compile">
+        <cc objdir="${build}" subsystem="console"
+                    outfile="${build}/${output.name}" outtype="shared" debug="off" multithreaded="yes" runtime="static">
+
+            <compiler refid="msvc-cl" if="os.iswindows" />
+            <compiler refid="linux-gcc" if="os.isunix" />
+
+            <fileset dir=".">
+                <exclude name="${cppsrc}/extern/STLport/**" />
+                <include name="${cppsrc}/**/*.cpp" />
+            </fileset>
+
+            <fileset dir="../pathematics">
+                <include name="src/cpp/**/*.cpp" />
+            </fileset>
+	    
+            <sysincludepath>
+                <pathelement path="${cppsrc}/extern/STLport/stlport" />
+                <pathelement path="${cppsrc}" />
+                <pathelement path="../pathematics/src/cpp" />
+            </sysincludepath>
+
+            <linker refid="msvc-link" if="os.iswindows" />
+            <linker refid="linux-gcc-ld" if="os.isunix" />
+        </cc>
+
+    </target>
+
+    <target name="define-compilers">
+        <compiler id="msvc-cl" name="msvc" exceptions="no">
+            <compilerarg value="/GX-" />
+            <compilerarg value="/Zi" />
+            <compilerarg value="/O2" />
+            <sysincludepath>
+                <pathelement path="${msvc.include}" />
+            </sysincludepath>
+
+            <defineset>
+                <define name="WIN32" />
+                <define name="_WINDOWS" />
+                <define name="_NDEBUG" />
+                <define name="_USRDLL" />
+                <define name="BOT_EXPORTS" />
+                <define name="_USE_STLP_STATIC_LIB" />
+            </defineset>
+        </compiler>
+
+        <compiler id="linux-gcc" name="gcc" exceptions="no" debug="no">
+            <compilerarg value="-pthread" />
+            <compilerarg value="-O2" />
+            <defineset>
+                <define name="_NDEBUG" />
+                <define name="NDEBUG" />
+            </defineset>
+        </compiler>
+
+        <linker id="msvc-link" name="msvc" incremental="off">
+            <linkerarg value="/LIBPATH:${build}" />            
+            <linkerarg value="/def:${basedir}/src/cpp/linkage/bot.def" />
+            <linkerarg value="/NODEFAULTLIB:LIBCMT" />
+
+            <libset dir="${basedir}/lib" libs="stlport_vc71_static" />
+        </linker>
+
+        <linker id="linux-gcc-ld" name="gcc"  debug="no">
+            <linkerarg value="-lm" />
+            <linkerarg value="-lpthread" />
+            <!--linkerarg value="-lstdc++" -->
+            <!-- We link to the Valve .so.  Note that this means that the .so must be in this directory relative to -->
+            <!-- the build directory.  The relative directory link is important so hlds will find the .so at -->
+            <!-- load time; otherwise, the metamod load will fail with a rather unhelpful "badf" status. -->
+            <linkerarg value="valve/dlls/hl_i386.so" />
+            <libset dir="${basedir}/lib" libs="stlport_gcc" />
+            <libset dir="${gcc-lib}" libs="supc++" />
+        </linker>
+
+    </target>
+
+    <target name="clean" depends="init">
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+    </target>
+
+    <!-- INITIALISATION -->
+  
+    <target name="init" depends="set-properties, detect-os, prepare" />
+
+    <target name="prepare" depends="set-properties,make-dirs,copy-valve-lib" />
+
+    <target name="make-dirs" depends="set-properties">
+        <mkdir dir="${build}" />
+        <mkdir dir="${build}/valve" />
+        <mkdir dir="${build}/valve/dlls" />
+        <mkdir dir="${dist}" />
+        <mkdir dir="${dist}/addons" />
+        <mkdir dir="${dist}/addons/whichbot" />
+        <mkdir dir="${dist}/addons/whichbot/data" />
+        <mkdir dir="${dist}/addons/whichbot/dlls" />
+        <mkdir dir="${dist}/addons/metamod" />
+        <mkdir dir="${dist}/addons/metamod/dlls" />
+    </target>
+
+    <target name="copy-valve-lib" depends="set-properties" if="os.isunix">
+        <copy todir="${build}/valve/dlls">
+            <fileset dir="../../../games/ns/hlds_l/valve/dlls" includes="hl_i386.so" />
+        </copy>
+    </target>
+
+    <target name="set-properties">
+        <tstamp />
+        <property file="build.properties" />
+    </target>
+
+    <target name="detect-os" depends="which-os,set-windows-properties,set-unix-properties"/>
+
+    <target name="which-os">
+	<condition property="os.iswindows">
+	    <os family="windows"/>
+	</condition>
+
+	<condition property="os.isunix">
+	    <os family="unix"/>
+	</condition>
+    </target>
+
+    <target name="set-windows-properties" if="os.iswindows">
+	<echo message="Windows OS detected."/>
+	<property name="os.family" value="windows"/>
+    </target>
+
+    <target name="set-unix-properties" if="os.isunix">
+	<echo message="Unix OS detected."/>
+	<property name="os.family" value="unix"/>
+    </target>
+</project>

@@ -1,0 +1,43 @@
+Updates for v0.91 since v0.86:
+
+[*] Steam is now the officially supported WB platform.  WB will work (more or less) under WON but may be more buggy.
+
+[*] Replaced bundled metamod version with v1.17a from modns.org (http://www.modns.org/forums/index.php?showtopic=237&st=0).
+
+[*] Added support for Natural Selection: Combat, including waypoints for all the official Combat maps!
+
+[*] Added lerk support!  Includes actual flight!  Lerks should also use all their weapons now.
+
+[*] Tweaked skulk/lerk/gorge movement so hopefully they'll dodge a little better in a fight.
+
+[*] Fixed bug that caused gorges to sometimes never build structures.
+
+[*] Fixed bug that caused gorges to build more chambers than necessary when 2 gorges decided to build them at nearly the same time (it will still happen very occasionally but hopefully not as often).
+
+[*] Fixed bug that caused bots joining a game after round start to inherit the upgrades/lifeform/etc of the first bot to start playing. This will still happen in WON mode (but not Steam), but even then the bots will not be confused (previously, a bot spawning in as a Lerk would think it was a skulk, for example).
+
+[*] Fixed an ancient hack where bots were using people's max health to work out what evolution they were.
+
+[*] Fixed a bug that caused gorge "stuck" teleportation to break.
+
+[*] Fixed a bug that caused higher lifeforms to sometimes think they were skulks when they weren't.
+
+[*] Fixed a bug that caused occasional crashes in WON mode.
+
+[*] Fixed bug in evasion that caused less zig-zags than there were supposed to be.
+
+[*] Added targeting fix so ranged weapons aren't quite so awful.
+
+[*] Fixed a bug that caused global say commands to be broken.
+
+[*] Bots like celerity more these days. :)
+
+[*] Added waypoints for ns_metal & ns_agora (credit to Squidget!)
+
+[*] Updated waypoints for ns_veil (credit to Sandman[SA]!)
+
+[*] Added waypoints for ns_hera (credit to Sandman[SA]!)
+
+[*] Added waypoints for ns_nancy (credit to Atomic, Jeezuz and Sandman[SA]!)
+
+[*] Added waypoints for ns_mineshaft (credit to mrex!)

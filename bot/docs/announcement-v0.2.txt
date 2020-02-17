@@ -1,0 +1,62 @@
+Version .2 alpha for WhichBot is ready!
+
+Latest features:
+
+  [*] HiveMind strategy manager helps to coordinate bots
+  [*] Completely new navigation system which uses dynamic navigation
+    calculation instead of precalculated paths
+  [*] Tweaked reactive movement to reduce chances of getting stuck and
+    improved fallback behaviour in case of sticking
+  [*] Completely new strategy system that blends different behaviours
+    for offense/defense
+  [*] Communication with rest of alien team (bots tell you the location of
+    new marine structures they find)
+  [*] Improved waypoints for faster movement and better vent navigation
+  [*] Config file management for tweaking of strategy values
+  [*] Waypoint editing and debugging available
+
+The dynamic navigation is particularly interesting compared with the more
+static strategies that bots often use; an example might be
+that a bot is going to attack the main marine base, but notices
+that Reactor Room is near its route.  Since the HiveMind tells it none 
+of the bots have been there for a while, it decides to take a slight detour
+to make sure there aren't any RTs built there.
+
+In technical terms, we do that by blending the scouting behaviour with
+the attack behaviour.  Future versions will have even more behaviours
+to blend, like "wolfpack", where bots tend to follow a leader and travel
+in packs.
+
+In the public test game last night of v0.2, the bots were managing a 1:3 kill
+ratio, which isn't too bad for skulks against mines, turrets, HA and
+and jetpacks.  There was one alien player (as gorge), in a mostly 5v5 game.
+
+If you've got any questions, check the FAQ first here in case we
+already answered it:
+
+http://sourceforge.net/docman/display_doc.php?docid=16096&group_id=76903
+
+The homepage for the bot is here:
+
+http://whichbot.sourceforge.net
+
+You can download the latest version here:
+
+http://sourceforge.net/project/showfiles.php?group_id=76903
+
+In the unfortunate event that you find a bug, bug reports go here:
+
+http://sourceforge.net/tracker/?group_id=76903&atid=548622
+
+and finally, bot-specific discussions can go in the thread here or in the
+forums at this link:
+
+http://sourceforge.net/forum/?group_id=76903
+
+Let us know what you think.
+
+Oh, and if you're in a clan, you think you're good, and your clan would be
+interested in playtesting new versions, please let me know.  We're also
+looking for good demos of games against the bots.
+
+++clamatius (& assorted WhichBot helpers)
